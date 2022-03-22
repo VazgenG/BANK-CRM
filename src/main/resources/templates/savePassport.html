@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Passport</title>
+</head>
+<body>
+Save Passport
+<form action="/addPassport" method="post">
+    name: <input type="text" name="name" th:value="${passport == null} ? '' : ${passport.name}"/> <br>
+    surname: <input type="text" name="surname" th:value="${passport == null} ? '' : ${passport.surname}"/> <br>
+    passportNumber: <input type="text" name="passportName" th:value="${passport == null} ? '' : ${passport.name}"/> <br>
+    dateOfBirth: <input type="text" name="name" th:value="${passport == null} ? '' : ${passport.name}"/> <br>
+    dateOfIssue: <input type="text" name="name" th:value="${passport == null} ? '' : ${passport.name}"/> <br>
+    dateOfExpiry: <input type="text" name="name" th:value="${passport == null} ? '' : ${passport.name}"/> <br>
+    authority: <input type="text" name="name" th:value="${passport == null} ? '' : ${passport.name}"/> <br>
+</form>
+</body>
+</html>

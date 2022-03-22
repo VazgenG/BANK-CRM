@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Customer </title>
+</head>
+<body>
+Save Customer
+<form action="/addCustomer" method="post" enctype="multipart/form-data">
+    <input th:if="${customer != null}" type="hidden" th:value="${customer.id}" name="id">
+    name: <input type="text" name="name" th:value="${customer == null} ? '' : ${customer.name}"/> <br>
+    surname:<input type="text" name="surname" th:value="${customer == null} ? '' : ${custome.surname}"/><br>
+    email:<input type="text" name="email" th:value="${customer == null} ? '' : ${customer.email}"/><br>
+    phone_number:<input type="text" name="phone_number" th:value="${customer == null} ? '' : ${customer.phone_number}"/><br>
+    customer_class:
+    <select name="customer_classes[]" multiple>
+        <option th:each="cat: ${classes}" th:text="${cat.name}" th:value="${cat.id}"></option>
+    </select> <br>
+    document:
+    <a href="/addPassport"> Add passport </a>
+    branch:
+    <select name="branche[]" multiple>
+        <option th:each="cat: ${branches}" th:text="${cat.name}" th:value="${cat.id}"></option>
+    </select> <br>
+
+    <input type="submit" value="save">
+</form>
+</body>
+</html>
