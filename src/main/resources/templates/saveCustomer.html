@@ -17,7 +17,7 @@ Save Customer
         <option th:each="cat: ${classes}" th:text="${cat.name}" th:value="${cat.id}"></option>
     </select> <br>
     document:
-    <a href="/addPassport"> Add passport </a>
+    <a href="/addPassport"> Add passport </a><br>
     branch:
     <select name="branche[]" multiple>
         <option th:each="cat: ${branches}" th:text="${cat.name}" th:value="${cat.id}"></option>

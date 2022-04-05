@@ -20,7 +20,7 @@ public class Passport {
     private int id;
     private String name;
     private String surname;
-    private String passport_phone;
+    private String passport_number;
     private Date date_of_birth;
     private Date date_of_issue;
     private Date date_of_expiry;
