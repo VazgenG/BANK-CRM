@@ -28,7 +28,7 @@ private final EmployeeService employeeService;
         List<Employee> employees = employeeService.findAll();
         map.addAttribute("employees", employees);
 
-        return "employees";
+        return "employee";
     }
 
     @GetMapping("/employees/byBranch/{id}")

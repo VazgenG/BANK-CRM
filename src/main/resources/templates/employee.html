@@ -9,11 +9,11 @@
 
     <button class="btn"><i class="fa fa-home"></i><a href="/"> HOME </a></button>
     <button class="btn"><a href="addEmployee">ADD Employee</a></button> <br>
-    <h1> Customers:</h1>
+    <h1> Employees:</h1>
 
-<a th:each="customer: ${employees}" th:href="@{'/customers/' + ${employee.id}}">
+<a th:each="employee: ${employees}" th:href="@{'/employees/' + ${employee.id}}">
 
-    <table id="customers">
+    <table id="employees">
         <tr>
             <div>
                 <td th:text="${employee.name}"></td>
