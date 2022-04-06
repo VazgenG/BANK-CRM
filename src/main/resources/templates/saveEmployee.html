@@ -8,7 +8,7 @@
 <body>
 <button class="btn"><a href="/"> HOME </a></button>
 <h1> SAVE EMPLOYEE </h1>
-<form action="/employees/add" method="post" enctype="multipart/form-data">
+<form action="/employee/add" method="post" enctype="multipart/form-data">
     <input th:if="${employee != null}" type="hidden" th:value="${employee.id}" name="id">
     name:<input type="text" name="name" th:value="${employee == null} ? '' : ${employee.name}"/><br>
     surname:<input type="text" name="surname" th:value="${employee == null} ? '' : ${employee.surname}"/><br>

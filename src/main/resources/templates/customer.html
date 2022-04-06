@@ -11,7 +11,7 @@
     <button class="btn"><a href="addCustomer">ADD Customer</a></button> <br>
     <h1> Customers:</h1>
 
-<a th:each="customer: ${customers}" th:href="@{'/customers/' + ${customer.id}}">
+<a th:each="customer: ${customers}" th:href="@{'/customer/' + ${customer.id}}">
 
     <table id="customers">
         <tr>

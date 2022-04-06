@@ -3,11 +3,14 @@ package com.example.bankcrm.controller;
 
 import com.example.bankcrm.dto.CreateEmployeeRequest;
 import com.example.bankcrm.entity.Branch;
+import com.example.bankcrm.entity.Customer;
 import com.example.bankcrm.entity.Employee;
 import com.example.bankcrm.service.BranchService;
 import com.example.bankcrm.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -40,13 +43,12 @@ private final EmployeeService employeeService;
         return "employees";
     }
 
-    @GetMapping("/employees/add")
-    public String addEmployeePage(ModelMap map) {
-        map.addAttribute("branches", branchService.findAll());
+    @GetMapping("/employee/add")
+    public String addEmployeePage() {
         return "saveEmployee";
     }
 
-    @PostMapping("/employees/add")
+    @PostMapping("/employee/add")
     public String addCompany(@ModelAttribute Employee employee) {
         employeeService.save(employee);
         return "redirect:/saveEmployee";
@@ -63,4 +65,6 @@ private final EmployeeService employeeService;
         employeeService.deleteById(id);
         return "redirect:/";
     }
+
+
 }

@@ -48,7 +48,7 @@ public class DocumentController {
     @PostMapping("/socialCard/add")
     public  String addSocialCard(@ModelAttribute SocialCard socialCard){
         customerService.addSocialCard(socialCard);
-        return "redirect:/saveSocialCard";
+        return "redirect:/addCustomer";
     }
 
 }

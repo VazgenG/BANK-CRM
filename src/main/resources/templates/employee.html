@@ -8,7 +8,7 @@
 <body>
 
     <button class="btn"><i class="fa fa-home"></i><a href="/"> HOME </a></button>
-    <button class="btn"><a href="addEmployee">ADD Employee</a></button> <br>
+    <button class="btn"><a href="/employee/add">ADD Employee</a></button> <br>
     <h1> Employees:</h1>
 
 <a th:each="employee: ${employees}" th:href="@{'/employees/' + ${employee.id}}">

@@ -61,7 +61,7 @@ public class EmployeeService {
                 .business_phone(createEmployeeRequest.getBusiness_phone())
                 .user_name(createEmployeeRequest.getUser_name())
                 .password(createEmployeeRequest.getPassword())
-                .position(createEmployeeRequest.getPosition())
+
                 .branch(branchRepository.findById(createEmployeeRequest.getBranchId()).orElse(null))
                 .document(documentRepository.findById(createEmployeeRequest.getDocumentId()).orElse(null))
                 .build();
