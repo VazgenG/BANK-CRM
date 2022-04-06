@@ -17,10 +17,15 @@ Save Customer
         <option th:each="cat: ${classes}" th:text="${cat.name}" th:value="${cat.id}"></option>
     </select> <br>
     document:
-    <a href="/addPassport"> Add passport </a><br>
+    <a href="/documents"> Add document </a><br>
+    address:
+    <select name="addresses[]" multiple>
+        <option th:each="address: ${addresses}" th:text="${address.name}" th:value="${address.id}"></option>
+    </select>
+    <a href="/addAddress"> Add address </a><br>
     branch:
-    <select name="branche[]" multiple>
-        <option th:each="cat: ${branches}" th:text="${cat.name}" th:value="${cat.id}"></option>
+    <select name="branches[]" multiple>
+        <option th:each="address: ${branches}" th:text="${branch.name}" th:value="${branch.id}"></option>
     </select> <br>
 
     <input type="submit" value="save">

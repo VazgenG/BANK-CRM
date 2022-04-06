@@ -21,5 +21,5 @@ public class Document {
     @ManyToOne(fetch = FetchType.EAGER)
     private Passport passport;
     @ManyToOne(fetch = FetchType.EAGER)
-    private SocialCard social_card;
+    private SocialCard socialCard;
 }

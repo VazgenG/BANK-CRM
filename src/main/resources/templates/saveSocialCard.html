@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Social Card</title>
+</head>
+<body>
+Save Social Card
+<form action="/socialCard/add" method="post">
+    number: <input type="text" name="number" th:value="${socialCard == null} ? '' : ${socialCard.number}"/> <br>
+
+    <input type="submit" value="save">
+</form>
+</body>
+</html>

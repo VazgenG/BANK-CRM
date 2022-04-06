@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD EMPLOYEE</title>
+
+</head>
+<body>
+<button class="btn"><a href="/"> HOME </a></button>
+<h1> SAVE EMPLOYEE </h1>
+<form action="/employees/add" method="post" enctype="multipart/form-data">
+    <input th:if="${employee != null}" type="hidden" th:value="${employee.id}" name="id">
+    name:<input type="text" name="name" th:value="${employee == null} ? '' : ${employee.name}"/><br>
+    surname:<input type="text" name="surname" th:value="${employee == null} ? '' : ${employee.surname}"/><br>
+    email:<input type="text" name="email" th:value="${employee == null} ? '' : ${employee.email}"/><br>
+    business_phone:<input type="text" name="business_phone" th:value="${employee == null} ? '' : ${employee.business_phone}"/><br>
+    user_name:<input type="text" name="user_name" th:value="${employee == null} ? '' : ${employee.user_name}"/><br>
+    password:<input type="text" name="password" th:value="${employee == null} ? '' : ${employee.password}"/><br>
+    position:<input type="text" name="position" th:value="${employee == null} ? '' : ${employee.position}"/><br>
+    document: <a href="/documents"> Add document </a><br>
+    branches:
+    <select name="branch.id">
+        <option th:each="branch: ${branches}" th:text="${branch.name}" th:value="${branch.id}"></option>
+    </select><br>
+
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

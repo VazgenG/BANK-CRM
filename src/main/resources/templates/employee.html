@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees Page</title>
+
+</head>
+<body>
+
+    <button class="btn"><i class="fa fa-home"></i><a href="/"> HOME </a></button>
+    <button class="btn"><a href="addEmployee">ADD Employee</a></button> <br>
+    <h1> Customers:</h1>
+
+<a th:each="customer: ${employees}" th:href="@{'/customers/' + ${employee.id}}">
+
+    <table id="customers">
+        <tr>
+            <div>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.surname}"></td>
+                <td th:text="${employee.position}"></td>
+            </div>
+        </tr>
+    </table>
+</a>
+</body>
+</html>
