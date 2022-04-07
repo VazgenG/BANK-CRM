@@ -1,5 +1,6 @@
 package com.example.bankcrm.service;
 
+import com.example.bankcrm.Enum.Position;
 import com.example.bankcrm.dto.CreateEmployeeRequest;
 import com.example.bankcrm.entity.Branch;
 import com.example.bankcrm.entity.Employee;
@@ -8,6 +9,7 @@ import com.example.bankcrm.repository.DocumentRepository;
 import com.example.bankcrm.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,6 +23,7 @@ public class EmployeeService {
 
     private final EmployeeRepository employeeRepository;
 
+    private final PasswordEncoder passwordEncoder;
     private final BranchRepository branchRepository;
     private final DocumentRepository documentRepository;
 
@@ -32,8 +35,12 @@ public class EmployeeService {
     }
 
     public Employee save(Employee employee) {
+        String encode = passwordEncoder.encode(employee.getPassword());
+        employee.setPassword(encode);
+        employee.setPosition(Position.HRSpecialist);
         return employeeRepository.save(employee);
     }
+
 
     public void deleteById(int id) {
         employeeRepository.deleteById(id);
@@ -50,6 +57,7 @@ public class EmployeeService {
     public List<Employee> findAllByBranch(Branch branch) {
         return employeeRepository.findAllByBranch(branch);
     }
+
 
 
     private Employee getEmployeeFromRequest(CreateEmployeeRequest createEmployeeRequest) {
