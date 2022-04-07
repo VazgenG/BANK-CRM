@@ -1,5 +1,6 @@
 package com.example.bankcrm.entity;
 
+import com.example.bankcrm.Enum.Position;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,7 +24,8 @@ public class Employee {
     private String business_phone;
     private String user_name;
     private String password;
-    private String position;
+    @Enumerated(EnumType.STRING)
+    private Position position;
 
     @ManyToOne(fetch = FetchType.EAGER)
     Branch branch;

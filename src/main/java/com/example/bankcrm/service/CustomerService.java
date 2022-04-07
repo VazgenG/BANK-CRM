@@ -24,10 +24,11 @@ public class CustomerService {
        return customerRepository.findAll();
 
    }
-   public  void addCustomer(@ModelAttribute Customer customer){
+   public  void saveCustomer(@ModelAttribute Customer customer){
        customerRepository.save(customer);
    }
    public Passport addPassport(@ModelAttribute Passport passport){
+
 
        return passportRepository.save(passport);
    }

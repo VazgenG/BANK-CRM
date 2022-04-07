@@ -6,7 +6,7 @@
 </head>
 <body>
 Save Customer
-<form action="/addCustomer" method="post" enctype="multipart/form-data">
+<form action="/addCustomer" method="post" >
     <input th:if="${customer != null}" type="hidden" th:value="${customer.id}" name="id">
     name: <input type="text" name="name" th:value="${customer == null} ? '' : ${customer.name}"/> <br>
     surname:<input type="text" name="surname" th:value="${customer == null} ? '' : ${custome.surname}"/><br>
