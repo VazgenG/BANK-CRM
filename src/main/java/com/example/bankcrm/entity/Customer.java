@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -33,8 +34,9 @@ public class Customer {
     private Product product;
     @ManyToOne(fetch = FetchType.EAGER)
     private Workplace workplace;
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Branch branch;
+
+    @OneToMany
+    private List<Branch> branches;
 
 
 }

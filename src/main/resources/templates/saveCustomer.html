@@ -23,9 +23,9 @@ Save Customer
         <option th:each="address: ${addresses}" th:text="${address.name}" th:value="${address.id}"></option>
     </select>
     <a href="/addAddress"> Add address </a><br>
-    branch:
+    Branches:
     <select name="branches[]" multiple>
-        <option th:each="address: ${branches}" th:text="${branch.name}" th:value="${branch.id}"></option>
+        <option th:each="branch :${branches}" th:text="${branch.name}" th:value="${branch.id}"></option>
     </select> <br>
 
     <input type="submit" value="save">

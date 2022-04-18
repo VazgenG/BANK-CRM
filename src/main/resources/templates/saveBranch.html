@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Branch</title>
+</head>
+<body>
+Save Branch
+<form action="/branch/add" method="post">
+
+
+    name: <input type="text" name="name" th:value="${branch == null} ? '' : ${branch.name}"/> <br>
+    address:
+    <select name="addresses[]" multiple>
+        <option th:each="address: ${addresses}" th:text="${address.name}" th:value="${address.id}"></option>
+    </select>
+    email: <input type="text" name="email" th:value="${branch == null} ? '' : ${branch.email}"/> <br>
+
+</form>
+</body>
+</html>
