@@ -20,7 +20,7 @@ private  final AddressService addressService;
     @PostMapping("/addAddress")
     public String addAddress(@ModelAttribute Address address) {
         addressService.addAddress(address);
-        return "redirect:/saveCustomer";
+        return "redirect:/addAddress";
     }
 
 

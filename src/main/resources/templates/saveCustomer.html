@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Customer </title>
+    <button class="btn"><i class="fa fa-home"></i><a href="/"> HOME </a></button>
 </head>
 <body>
 Save Customer
-<form action="/addCustomer" method="post" >
+<form action="/addCustomer" method="post" enctype="multipart/form-data" >
     <input th:if="${customer != null}" type="hidden" th:value="${customer.id}" name="id">
     name: <input type="text" name="name" th:value="${customer == null} ? '' : ${customer.name}"/> <br>
     surname:<input type="text" name="surname" th:value="${customer == null} ? '' : ${custome.surname}"/><br>

@@ -26,6 +26,8 @@ public class Address {
 
     @Enumerated(EnumType.STRING)
     private Region region;
+
+    @Enumerated(EnumType.STRING)
     private City city;
 
 }
