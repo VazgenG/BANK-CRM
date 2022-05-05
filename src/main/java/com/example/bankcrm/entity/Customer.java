@@ -6,7 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -35,8 +37,15 @@ public class Customer {
     @ManyToOne(fetch = FetchType.EAGER)
     private Workplace workplace;
 
-    @OneToMany
-    private List<Branch> branches;
+    @ManyToOne
+    private Branch branch;
+
+    private UUID token;
+
+    private  boolean active;
+
+    private LocalDateTime tokenCreatedDate;
+
 
 
 }

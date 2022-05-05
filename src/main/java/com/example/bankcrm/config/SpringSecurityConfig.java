@@ -14,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
-public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
+public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private EmployeeDetailsImpl employeeDetails;
@@ -29,13 +29,29 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/").permitAll()
-                .antMatchers(HttpMethod.GET,"/addCustomer").permitAll()
-                .antMatchers(HttpMethod.POST,"/addCustomer").permitAll()
-                .antMatchers(HttpMethod.GET,"/addAddress").permitAll()
-                .antMatchers(HttpMethod.POST,"/addAddress").permitAll()
-                .antMatchers(HttpMethod.GET,"/branch/add").permitAll()
-                .antMatchers(HttpMethod.POST,"/branch/add").permitAll()
-                .antMatchers("/employee/add").hasAnyAuthority(Position.HRSpecialist.name(), Position.HRSpecialist.name())
+                .antMatchers(HttpMethod.GET, "/customers").permitAll()
+                .antMatchers(HttpMethod.POST, "/customers").permitAll()
+                .antMatchers(HttpMethod.GET, "/documents").permitAll()
+                .antMatchers(HttpMethod.POST, "/documents").permitAll()
+                .antMatchers(HttpMethod.GET, "/Customer/add").permitAll()
+                .antMatchers(HttpMethod.GET, "/Customer/add").permitAll()
+
+                .antMatchers(HttpMethod.GET, "/Customer/add").permitAll()
+                .antMatchers(HttpMethod.POST, "/Customer/add").permitAll()
+                .antMatchers(HttpMethod.GET, "/addAddress").permitAll()
+                .antMatchers(HttpMethod.GET, "/Passport/add").permitAll()
+                .antMatchers(HttpMethod.POST, "/Passport/add").permitAll()
+                .antMatchers(HttpMethod.POST, "/socialCard/add").permitAll()
+                .antMatchers(HttpMethod.GET, "/socialCard/add").permitAll()
+                .antMatchers(HttpMethod.GET, "/addSocialCard").permitAll()
+                .antMatchers(HttpMethod.GET, "/employees").permitAll()
+
+                .antMatchers(HttpMethod.POST, "/addAddress").permitAll()
+                .antMatchers(HttpMethod.GET, "/branch/add").permitAll()
+                .antMatchers(HttpMethod.POST, "/branch/add").permitAll()
+                .antMatchers(HttpMethod.GET, "/employee/add").permitAll()
+                .antMatchers(HttpMethod.POST, "/employee/add").permitAll()//hasAnyAuthority(Position.HRSpecialist.name(), Position.HRSpecialist.name())
+                .antMatchers(HttpMethod.POST, "/employees").permitAll()
                 .anyRequest().authenticated();
 
     }
@@ -47,11 +63,9 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-
 
 
 }

@@ -49,9 +49,9 @@ private final EmployeeService employeeService;
     }
 
     @PostMapping("/employee/add")
-    public String addCompany(@ModelAttribute Employee employee) {
+    public String addEmployee(@ModelAttribute Employee employee) {
         employeeService.save(employee);
-        return "redirect:/saveEmployee";
+        return "redirect:/employees";
     }
 
     @GetMapping("/employees/{id}")
