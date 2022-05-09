@@ -13,45 +13,50 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class CustomerService {
 
     private final BranchRepository branchRepository;
-   private final CustomerRepository customerRepository;
-   private  final PassportRepository passportRepository;
-   private  final SocialCardRepository socialCardRepository;
+    private final CustomerRepository customerRepository;
+    private final PassportRepository passportRepository;
+    private final SocialCardRepository socialCardRepository;
 
-   public List<Customer> findAll(){
-       return customerRepository.findAll();
+    public List<Customer> findAll() {
+        return customerRepository.findAll();
 
-   }
+    }
 
-    public Customer addCustomer(Customer customer,  List<Integer> branches) throws IOException {
-        List<Branch> branchesFromDB = getBranchesFromRequest(branches);
-//        customer.setEmployee(employee);
-        customer.setBranches(branchesFromDB);
+    public Customer addCustomer(Customer customer ) throws IOException {
+
         customerRepository.save(customer);
         return customer;
     }
 
 
-   public Passport addPassport(@ModelAttribute Passport passport){
+    public Passport addPassport(@ModelAttribute Passport passport) {
 
-       return passportRepository.save(passport);
-   }
+        return passportRepository.save(passport);
+    }
 
     public SocialCard addSocialCard(@ModelAttribute SocialCard socialCard) {
 
         return socialCardRepository.save(socialCard);
+
     }
-    private List<Branch> getBranchesFromRequest(List<Integer> branchesIds) {
-        List<Branch> branches = new ArrayList<>();
-        for (Integer branch : branchesIds) {
-            branches.add(branchRepository.getById(branch));
-        }
-        return branches;
+
+    public Optional<Customer> findByToken(UUID token) {
+        return customerRepository.findByToken(token);
     }
+//    private List<Branch> getBranchesFromRequest(List<Integer> branchesIds) {
+//        List<Branch> branches = new ArrayList<>();
+//        for (Integer branch : branchesIds) {
+//            branches.add(branchRepository.getById(branch));
+//        }
+//        return branches;
+//    }
 
 }

@@ -27,16 +27,16 @@ public class DocumentController {
     }
 
 
-    @GetMapping("/addPassport")
+    @GetMapping("/Passport/add")
     public String addCustomerPage() {
         return "savePassport";
     }
 
 
-    @PostMapping("/addPassport")
+    @PostMapping("/Passport/add")
     public  String addPassport(@ModelAttribute Passport passport){
         customerService.addPassport(passport);
-        return "redirect:/savePassport";
+        return "redirect:/Customer/add";
     }
 
     @GetMapping("/addSocialCard")
@@ -48,7 +48,7 @@ public class DocumentController {
     @PostMapping("/socialCard/add")
     public  String addSocialCard(@ModelAttribute SocialCard socialCard){
         customerService.addSocialCard(socialCard);
-        return "redirect:/addCustomer";
+        return "redirect:/Customer/add";
     }
 
 }

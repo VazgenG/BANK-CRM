@@ -2,14 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Passport</title>
+    <title>A</title>
 </head>
 <body>
-Save Passport
+
 <form action="/addAddress" method="post">
 
     <select name="addresses[]" multiple>
         <option th:each="region: ${addresses}" th:text="${address.region}" th:value="${address.id}"></option>
+
     </select> <br>
 
     <select name="cities[]" multiple>
@@ -18,7 +19,7 @@ Save Passport
 
     street: <input type="text" name="street" th:value="${address == null} ? '' : ${address.street}"/> <br>
     home: <input type="text" name="home" th:value="${address == null} ? '' : ${address.home}"/> <br>
-
+    <input type="submit" value="save">
 </form>
 </body>
 </html>

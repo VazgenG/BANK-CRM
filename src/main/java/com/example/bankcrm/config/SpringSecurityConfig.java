@@ -14,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
-public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
+public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private EmployeeDetailsImpl employeeDetails;
@@ -29,15 +29,6 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/").permitAll()
-                .antMatchers(HttpMethod.GET,"/addCustomer").permitAll()
-                .antMatchers(HttpMethod.POST,"/addCustomer").permitAll()
-                .antMatchers(HttpMethod.GET,"/addAddress").permitAll()
-                .antMatchers(HttpMethod.POST,"/addAddress").permitAll()
-                .antMatchers(HttpMethod.GET,"/branch/add").permitAll()
-                .antMatchers(HttpMethod.POST,"/branch/add").permitAll()
-                .antMatchers(HttpMethod.GET,"/employee/add").permitAll()
-                .antMatchers(HttpMethod.POST,"/employee/add").permitAll()
-                .antMatchers("/employee/add").hasAnyAuthority(Position.HRSpecialist.name(), Position.HRSpecialist.name())
                 .anyRequest().authenticated();
 
     }
@@ -49,11 +40,9 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-
 
 
 }

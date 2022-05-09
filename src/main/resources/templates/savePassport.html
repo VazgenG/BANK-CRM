@@ -6,7 +6,7 @@
 </head>
 <body>
 Save Passport
-<form action="/addPassport" method="post">
+<form action="/Passport/add" method="post">
     name: <input type="text" name="name" th:value="${passport == null} ? '' : ${passport.name}"/> <br>
     surname: <input type="text" name="surname" th:value="${passport == null} ? '' : ${passport.surname}"/> <br>
     passportNumber: <input type="text" name="passportName" th:value="${passport == null} ? '' : ${passport.name}"/> <br>
