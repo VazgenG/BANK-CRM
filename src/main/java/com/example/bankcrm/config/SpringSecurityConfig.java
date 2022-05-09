@@ -29,29 +29,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/").permitAll()
-                .antMatchers(HttpMethod.GET, "/customers").permitAll()
-                .antMatchers(HttpMethod.POST, "/customers").permitAll()
-                .antMatchers(HttpMethod.GET, "/documents").permitAll()
-                .antMatchers(HttpMethod.POST, "/documents").permitAll()
-                .antMatchers(HttpMethod.GET, "/Customer/add").permitAll()
-                .antMatchers(HttpMethod.GET, "/Customer/add").permitAll()
-
-                .antMatchers(HttpMethod.GET, "/Customer/add").permitAll()
-                .antMatchers(HttpMethod.POST, "/Customer/add").permitAll()
-                .antMatchers(HttpMethod.GET, "/addAddress").permitAll()
-                .antMatchers(HttpMethod.GET, "/Passport/add").permitAll()
-                .antMatchers(HttpMethod.POST, "/Passport/add").permitAll()
-                .antMatchers(HttpMethod.POST, "/socialCard/add").permitAll()
-                .antMatchers(HttpMethod.GET, "/socialCard/add").permitAll()
-                .antMatchers(HttpMethod.GET, "/addSocialCard").permitAll()
-                .antMatchers(HttpMethod.GET, "/employees").permitAll()
-
-                .antMatchers(HttpMethod.POST, "/addAddress").permitAll()
-                .antMatchers(HttpMethod.GET, "/branch/add").permitAll()
-                .antMatchers(HttpMethod.POST, "/branch/add").permitAll()
-                .antMatchers(HttpMethod.GET, "/employee/add").permitAll()
-                .antMatchers(HttpMethod.POST, "/employee/add").permitAll()//hasAnyAuthority(Position.HRSpecialist.name(), Position.HRSpecialist.name())
-                .antMatchers(HttpMethod.POST, "/employees").permitAll()
                 .anyRequest().authenticated();
 
     }
