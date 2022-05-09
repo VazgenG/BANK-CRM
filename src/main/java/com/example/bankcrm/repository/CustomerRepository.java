@@ -10,6 +10,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
 
 
-Optional<Customer> findByToken(UUID token);
+Optional<Customer> findByToken(UUID String);
 
 }

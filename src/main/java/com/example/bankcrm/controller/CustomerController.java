@@ -10,6 +10,7 @@ import com.example.bankcrm.entity.Customer;
 import com.example.bankcrm.service.MailService;
 import com.example.bankcrm.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.patterns.IToken;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -60,7 +61,7 @@ public class CustomerController {
 
         Customer customer = mapper.map(createCustomerRequest, Customer.class);
         customer.setActive(false);
-        customer.setToken(UUID.randomUUID());
+        customer.setToken(String.valueOf(UUID.randomUUID()));
         customer.setTokenCreatedDate(LocalDateTime.now());
         customerService.addCustomer(customer);
         mailService.sendMail(customer.getEmail(), "Welcome  " + customer.getSurname(),
@@ -73,8 +74,7 @@ public class CustomerController {
 
     @GetMapping("/customer/activate")
     public String activateCustomer(ModelMap map, @RequestParam String token) throws IOException {
-        Optional<Customer> customer = customerService.findByToken(UUID.fromString(token));
-        if (!customer.isPresent()) {
+        Optional<Customer> customer = customerService.findByToken(UUID.fromString(token));if (!customer.isPresent()) {
             map.addAttribute("message", "Customer Does not exists");
             return "activateCustomer";
 

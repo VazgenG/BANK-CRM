@@ -40,7 +40,7 @@ public class Customer {
     @ManyToOne
     private Branch branch;
 
-    private UUID token;
+    private String  token;
 
     private  boolean active;
 
