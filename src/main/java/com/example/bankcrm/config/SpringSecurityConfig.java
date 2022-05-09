@@ -29,7 +29,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/").permitAll()
-            <<<<<<< modify_address_controller
                 .antMatchers(HttpMethod.GET, "/customers").permitAll()
                 .antMatchers(HttpMethod.POST, "/customers").permitAll()
                 .antMatchers(HttpMethod.GET, "/documents").permitAll()
@@ -53,7 +52,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/employee/add").permitAll()
                 .antMatchers(HttpMethod.POST, "/employee/add").permitAll()//hasAnyAuthority(Position.HRSpecialist.name(), Position.HRSpecialist.name())
                 .antMatchers(HttpMethod.POST, "/employees").permitAll()
-=======
                 .antMatchers(HttpMethod.GET,"/addCustomer").permitAll()
                 .antMatchers(HttpMethod.POST,"/addCustomer").permitAll()
                 .antMatchers(HttpMethod.GET,"/addAddress").permitAll()
@@ -63,7 +61,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,"/employee/add").permitAll()
                 .antMatchers(HttpMethod.POST,"/employee/add").permitAll()
                 .antMatchers("/employee/add").hasAnyAuthority(Position.HRSpecialist.name(), Position.HRSpecialist.name())
->>>>>>> master
                 .anyRequest().authenticated();
 
     }
